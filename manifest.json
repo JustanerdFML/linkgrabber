@@ -1,0 +1,26 @@
+{
+  "name": "Quobuz DL",
+  "author": "JustanerdFML",
+  "manifest_version": 2,
+  "version": "0.16.0",
+  "description": "Linkgrabber for Qobuz, Deezer and many more",
+  "background": {
+    "page": "background.html"
+  },
+  "homepage_url": "https://github.com/JustanerdFML/linkgrabber",
+  "permissions": [
+    "contextMenus",
+    "tabs",
+    "downloads"
+  ],
+  "browser_action": {
+    "default_icon":  "icon/icon-48.png",
+    "default_title": "Tab List",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "icon/icon-16.png",
+    "48": "icon/icon-48.png",
+    "128": "icon/icon-128.png"
+  }
+}
