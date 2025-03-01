@@ -9,3 +9,6 @@ possible useable with other tools who could process those links ;)
 
 ### License
 GNU General Public License v3.0
+
+### Addon-Link
+https://addons.mozilla.org/de/firefox/addon/linkgrabber/
