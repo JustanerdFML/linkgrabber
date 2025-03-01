@@ -12,3 +12,5 @@ GNU General Public License v3.0
 
 ### Addon-Link
 https://addons.mozilla.org/de/firefox/addon/linkgrabber/
+
+## USAGE AT OWN RISK
