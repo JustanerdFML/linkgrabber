@@ -17,7 +17,7 @@ function initPopup() {
     document.getElementById("saveZeile").addEventListener("click", saveLinksZeile);
 
     // Korrigierte Event-Listener
-    document.getElementById("filterQuobuzButton").addEventListener("click", function() {
+    document.getElementById("filterQobuzButton").addEventListener("click", function() {
         setFilter('qobuz');
         changeButtonColor(this);
     });
@@ -29,17 +29,34 @@ function initPopup() {
         setFilter('nothing');
         changeButtonColor(this);
     });
+
+    document.getElementById("subFilterAlbumButton").addEventListener("click", function() {
+        setSubFilter('album');
+        changeButtonColor2(this);
+    });
+    document.getElementById("subFilterArtistButton").addEventListener("click", function() {
+        setSubFilter('artist');
+        changeButtonColor2(this);
+    });
+    document.getElementById("subFilterNothingButton").addEventListener("click", function() {
+        setSubFilter('subNothing');
+        changeButtonColor2(this);
+    });
 }
 function changeButtonColor(button) {
     // Entferne die "active" Klasse von allen Buttons
-    document.getElementById("filterQuobuzButton").classList.remove("active");
+    document.getElementById("filterQobuzButton").classList.remove("active");
     document.getElementById("filterDeezerButton").classList.remove("active");
     document.getElementById("filterNothingButton").classList.remove("active");
-
     // Füge die "active" Klasse zum geklickten Button hinzu
     button.classList.add("active");
 }
-
+function changeButtonColor2(button) {
+    document.getElementById("subFilterAlbumButton").classList.remove("active2");
+    document.getElementById("subFilterArtistButton").classList.remove("active2");
+    document.getElementById("subFilterNothingButton").classList.remove("active2");
+    button.classList.add("active2");
+}
 function openTextAreaList() {
     var list = document.getElementById("list").value; // Lese die Liste aus der Textarea
     openList(list); // Liste mit aktuellem Filter laden
@@ -55,20 +72,4 @@ function saveLinksZeile() {
     saveLine(list);
 }
 
-// Filter setzen und Liste neu laden
-/*
-function setFilter(option) {
-    if (option = 'qobuz') {
-        newfilter = qobus;
-    }
-    if (option = 'deezer') {
-        newfilter = deezer;
-    }
-    if (option = 'nothing') {
-        filterUrl( , 'nothing')
-    }
-
-
-}
-*/
 window.addEventListener("load", initPopup);

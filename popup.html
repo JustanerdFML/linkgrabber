@@ -8,61 +8,109 @@
 			margin: 0;
 			padding: 10px;
 		}
+
 		#list {
 			font-family: monospace;
 			width: 400px;
 			height: 200px;
 		}
-		#openButton, #saveListe, #saveZeile {
-			float: right;
+
+		/* Flexbox-Container für die erste Reihe */
+		.row1 {
+			display: flex;
+			justify-content: flex-start; /* Positioniert die Buttons links */
+			margin-bottom: 10px; /* Abstand zwischen den Reihen */
+		}
+
+		/* Flexbox-Container für die zweite Reihe */
+		.row2 {
+			display: flex;
+			justify-content: flex-start; /* Positioniert die Buttons links */
+			margin-bottom: 10px;
+		}
+		.row3 {
+			display: flex;
+			justify-content: flex-start; /* Positioniert die Buttons links */
+			margin-bottom: 10px;
+		}
+
+		/* Gemeinsame Stile für die Buttons */
+		#openButton, #saveListe, #saveZeile,
+		#filterQobuzButton, #filterDeezerButton, #filterNothingButton, #subFilterAlbumButton, #subFilterArtistButton, #subFilterNothingButton {
 			margin-top: 8px;
 			margin-bottom: 8px;
 			padding: 5px 15px 7px 15px;
 		}
-		#filterQuobuzButton, #filterDeezerButton, #filterNothingButton {
-    		float: right;
-    		margin-top: 8px;
-    		margin-bottom: 8px;
-    		padding: 5px 15px 7px 15px;
-    		background-color: #3498db; /* Ausgangsfarbe */
-    		color: white;
-    		border: none;
-    		border-radius: 5px;
-    		cursor: pointer;
-    		transition: background-color 0.3s ease;
+		#subFilterAlbumButton, #subFilterArtistButton, #subFilterNothingButton {
+			background-color: #3498db; /* Ausgangsfarbe */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+		}
+		/* Stile für die Filter-Buttons */
+		#filterQobuzButton, #filterDeezerButton, #filterNothingButton {
+			background-color: #3498db; /* Ausgangsfarbe */
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
 		}
 
 		/* Hover-Effekt */
-		#filterQuobuzButton:hover, #filterDeezerButton:hover, #filterNothingButton:hover {
-		    background-color: #c323c9; /* Farbe bei Hover */
+		#filterQobuzButton:hover, #filterDeezerButton:hover, #filterNothingButton:hover, #subFilterAlbumButton:hover, #subFilterArtistButton:hover, #subFilterNothingButton:hover {
+			background-color: #c323c9; /* Farbe bei Hover */
 		}
-
 		/* Effekt, wenn der Button aktiv ist (beim Klicken) */
-		#filterQuobuzButton:active, #filterDeezerButton:active, #filterNothingButton:active {
-	    	background-color: #1ad329; /* Farbe beim Drücken */
+		#filterQobuzButton:active, #filterDeezerButton:active, #filterNothingButton:active, #subFilterAlbumButton:active, #subFilterArtistButton:active, #subFilterNothingButton:active {
+			background-color: #1ad329; /* Farbe beim Drücken */
 		}
-
 		/* Optionale Focus-Effekte, falls der Button per Tab erreicht wird */
-		#filterQuobuzButton:focus, #filterDeezerButton:focus, #filterNothingButton:focus {
-		    outline: 3px solid #b92948; /* Umrandung bei Fokus */
+		#filterQobuzButton:focus, #filterDeezerButton:focus, #filterNothingButton:focus, #subFilterAlbumButton:focus, #subFilterArtistButton:focus, #subFilterNothingButton:focus {
+			outline: 3px solid #b92948; /* Umrandung bei Fokus */
 		}
 		/* Stil für den Button im aktiven Zustand (nach dem Klick) */
-		#filterQuobuzButton.active, #filterDeezerButton.active, #filterNothingButton.active {
-    		background-color: #8f1ad3; /* Farbänderung nach dem Klick */
+		#filterQobuzButton.active, #filterDeezerButton.active, #filterNothingButton.active {
+			background-color: #8f1ad3; /* Farbänderung nach dem Klick */
+		}
+		#subFilterAlbumButton.active2, #subFilterArtistButton.active2, #subFilterNothingButton.active2 {
+			background-color: #8f1ad3; /* Farbänderung nach dem Klick */
 		}
 
-		
+		.section-title {
+			font-weight: bold;
+			font-size: 12px;
+			margin-bottom: 5px;
+		}
+
 	</style>
 </head>
 <body id="body">
 	<textarea id="list" autofocus="autofocus"></textarea>
 
-	<button id="openButton" title="Open this list of URLs in new tabs">Open</button>
-    <button id="saveListe" title="Save Quobuz links List">Save Links List</button>
-    <button id="saveZeile" title="Save Quobuz links Zeile">Save Links Zeile</button>
+	<!-- Erste Reihe von Buttons -->
+	<p class="section-title">Default: Nothing</p>
+	<div class="row1">
+		<button id="filterNothingButton" title="Save All-Links">Filter Nothing</button>
+		<button id="filterQobuzButton" title="Save Qobuz-Links">Filter Quobuz</button>
+		<button id="filterDeezerButton" title="Save Deezer-Links">Filter Deezer</button>
 
-	<button id="filterQuobuzButton" title="Save Quobuz-Links">Filter Quobuz</button>
-    <button id="filterDeezerButton" title="Save Deezer-Links">Filter Deezer</button>
-    <button id="filterNothingButton" title="Save All-Links">Filter Nothing</button>
+	</div>
+	<p class="section-title">Default: Album</p>
+	<div class="row2">
+		<button id="subFilterAlbumButton" title="Filter Album">Filter Album</button>
+		<button id="subFilterArtistButton" title="Filter Artist">Filter Artist</button>
+		<button id="subFilterNothingButton" title="Filter not for Album or Artist">no sub-Filter</button>
+	<!-- Zweite Reihe von Buttons -->
+	</div>
+
+	<div class="row3">
+		<button id="saveListe" title="Save Quobuz links List">Save Links List</button>
+		<button id="saveZeile" title="Save Quobuz links Zeile">Save Links Zeile</button>
+		<button id="openButton" title="Open this list of URLs in new tabs">Open</button>
+
+	</div>
 </body>
 </html>

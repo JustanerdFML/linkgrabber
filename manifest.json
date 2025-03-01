@@ -2,7 +2,7 @@
   "name": "Linkgrabber",
   "author": "JustanerdFML",
   "manifest_version": 2,
-  "version": "0.16.0",
+  "version": "0.17.0",
   "description": "Linkgrabber for Qobuz, Deezer and many more",
   "background": {
     "page": "background.html"

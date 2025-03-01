@@ -1,5 +1,6 @@
 String.prototype.trim = function() { return this.replace(/^\s+|\s+$/g, ''); }
 let filterOption = 'nothing';
+let subFilterOption = 'album';
 
 function isProbablyUrl(string) {
 	var substr = string.substring(0,4).toLowerCase();
@@ -38,8 +39,10 @@ function saveUrl(list, delimiter, filename) {
         if (strings[i] === '') continue;
         if (isProbablyUrl(strings[i])) {
             if (filterUrl(strings[i])) {
-                    validUrls.push(strings[i]);
-                }
+                if (subFilterUrl(strings[i])) {
+                        validUrls.push(strings[i]);
+                    }
+            }
         }
     }
     const rawBlob = new Blob([validUrls.join(delimiter)], { type: 'text/plain' });
@@ -69,7 +72,21 @@ function filterUrl(url) {
     }
     return false;
 }
+function subFilterUrl(url) {
+    // filterUrl ohne option-Parameter, da der globale filterOption verwendet wird
+    if (subFilterOption === 'album') {
+        return url.includes('album');
+    } else if (subFilterOption === 'artist') {
+        return url.includes('/interpreter/') || url.includes('/artist/');
+    } else if (subFilterOption === 'subNothing' || subFilterOption === '') {
+        return true;
+    }
+    return false;
+}
 
 function setFilter(option) {
     filterOption = option; // Setze die globale Filteroption
+}
+function setSubFilter(subOption) {
+    subFilterOption =subOption
 }
